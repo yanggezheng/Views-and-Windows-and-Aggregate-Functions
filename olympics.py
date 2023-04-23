@@ -30,7 +30,8 @@ session = Session()
 # TODO: Write classes and code here
 class AthleteEvent(Base):
     __tablename__ = 'athlete_event'
-    id = Column(Integer, primary_key=True, autoincrement=True)
+    athlete_event_id = Column('athlete_event_id', Integer, primary_key = True)
+    id = Column(Integer)
     name = Column(String)
     sex = Column(String)
     age = Column(Integer)
@@ -55,7 +56,7 @@ class AthleteEvent(Base):
 
 class NOCRegion(Base):
     __tablename__ = 'noc_region'
-    noc = Column(String, primary_key=True, autoincrement=True)
+    noc = Column(String, primary_key=True)
     region = Column(String)
     note = Column(String)
     athlete_events = relationship("AthleteEvent", back_populates="noc_region")
@@ -66,7 +67,7 @@ class NOCRegion(Base):
     def __repr__(self):
         return f"<NOCRegion(noc='{self.noc}', region='{self.region}')>"
 
-new_event = AthleteEvent(id = 123456, name='Yuto Horigome', age=21, team='Japan', medal='Gold', year=2020, season='Summer', city='Tokyo', noc='JPN', sport='Skateboarding', event='Skatboarding, Street, Men')
+new_event = AthleteEvent( name='Yuto Horigome', age=21, team='Japan', medal='Gold', year=2020, season='Summer', city='Tokyo', noc='JPN', sport='Skateboarding', event='Skatboarding, Street, Men')
 session.add(new_event)
 session.commit()
 
