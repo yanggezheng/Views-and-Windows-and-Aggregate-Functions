@@ -16,8 +16,7 @@ create view standing as (select
                     else athlete_event.team
                     end
             ) as region
-    from athlete_event
-             full outer join noc_region on athlete_event.noc = noc_region.noc);
+    from athlete_event full outer join noc_region on athlete_event.noc = noc_region.noc);
 
 2. Use the Window Function, rank()
 
