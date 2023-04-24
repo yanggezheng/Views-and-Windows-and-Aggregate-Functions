@@ -1,4 +1,8 @@
 -- TODO: use explain / analyze, create an index
+
+drop index if exists athlete_event_name_idx;
+
+
 select * from athlete_event
 where name = 'Michael Fred Phelps, II';
 
